@@ -15,9 +15,11 @@ def start(message):
 
     app = types.InlineKeyboardButton(text="Зайти в HelpDesk", web_app=webApp)
     task = types.InlineKeyboardButton(text="Зайти в список задач", web_app=webAppTasks)
-    vkBut = types.InlineKeyboardButton(text="Зайти", url=config.url_site)
+    getTask = types.InlineKeyboardButton(
+        text="Получить список задач",
+    )
 
-    keyboard.add(app, task, vkBut)
+    keyboard.add(app, task, getTask)
 
     return bot.send_message(
         message.chat.id,
@@ -26,3 +28,9 @@ def start(message):
         + "\nПередайте вашему куратору ваш id",
         reply_markup=keyboard,
     )
+
+
+def get_tasks_user(message):
+    url_post = config.url_site + "/task/list/" + str(message.from_user.id)
+    post_response = requests.get(url_post)
+    return bot.send_message(message.chat.id, str(post_response.text))

@@ -18,6 +18,8 @@ bot = telebot.TeleBot(config.Token)
 def get_text_message(message):
     if message.text == "/start":
         handler.start(message)
+    else:
+        handler.get_tasks_user(message)
 
 
 if __name__ == "__main__":
