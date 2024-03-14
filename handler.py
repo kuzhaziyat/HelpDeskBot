@@ -11,22 +11,19 @@ def start(message):
         row_width=1, resize_keyboard=True, one_time_keyboard=True
     )
     webApp = types.WebAppInfo("https://" + str(config.url_site))
-    webAppTasks = types.WebAppInfo("https://127.0.0.1:8000")
-    print(webApp)
+    webAppTasks = types.WebAppInfo("https://" + str(config.url_site) + "/task/task")
     app = types.InlineKeyboardButton(text="Зайти в HelpDesk", web_app=webApp)
     task = types.InlineKeyboardButton(text="Зайти в список задач", web_app=webAppTasks)
-    getTask = types.InlineKeyboardButton(
-        text="Получить список задач",
-    )
 
-    keyboard.add(app, task, getTask)
+    keyboard.add(app, task)
 
     return bot.send_message(
         message.chat.id,
-        "Здраствуйте ваш id для регистрации в HelpDesk "
+        "Здраствуйте ваш id для регистрации в HelpDesk: `"
         + str(message.from_user.id)
-        + "\nПередайте вашему куратору ваш id",
+        + "`",
         reply_markup=keyboard,
+        parse_mode="markdownv2"
     )
 
 

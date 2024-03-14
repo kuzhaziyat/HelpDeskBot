@@ -1,2 +1,2 @@
-Token = "6919368693:AAHi7p_EsO0pzBRmbal1qQNgUD7WXh_jVn0"
+Token = "6995870570:AAF08ZARpqOI1GZRUKPYM8s4JHzQKVZ7G0U"
 url_site = "service.anocct.ru"
