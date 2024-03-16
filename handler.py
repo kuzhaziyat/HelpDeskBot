@@ -10,8 +10,8 @@ def start(message):
     keyboard = types.ReplyKeyboardMarkup(
         row_width=1, resize_keyboard=True, one_time_keyboard=True
     )
-    webApp = types.WebAppInfo("https://" + str(config.url_site))
-    webAppTasks = types.WebAppInfo("https://" + str(config.url_site) + "/task/task")
+    webApp = types.WebAppInfo("https://" + str(config.url_site)+'/admin')
+    webAppTasks = types.WebAppInfo("https://" + str(config.url_site) + "/admin/task/task")
     app = types.InlineKeyboardButton(text="Зайти в HelpDesk", web_app=webApp)
     task = types.InlineKeyboardButton(text="Зайти в список задач", web_app=webAppTasks)
 
