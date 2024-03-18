@@ -19,7 +19,7 @@ def start(message):
 
     return bot.send_message(
         message.chat.id,
-        "Здраствуйте ваш id для регистрации в HelpDesk: `"
+        "Здраствуйте ваш id для регистрации в ServiceDesk: `"
         + str(message.from_user.id)
         + "`",
         reply_markup=keyboard,
